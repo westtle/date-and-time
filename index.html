@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="A simple date & time with changeable timezone">
+  	<meta name="author" content="westtle">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Date & Time</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/styles/style.min.css">
+</head>
+<body>
+	<main>
+		<div id="date-and-time">
+			<div class="__clock-digital">
+				<div class="_time-format">
+						<span class="selected-format">12-hour</span>
+						<span>24-hour</span>
+				</div>
+				<div class="_hour-minute-second">
+	                <span id="--hour"></span>:<span id="--minute"></span>:<span id="--second"></span>
+	                <span id="--pm-am"></span>
+	                <span id="--offset">(+00:00)</span>
+	            </div>
+	            <div class="_month-day-year"></div>
+			</div>
+			<div class="__clock-analog">
+				<div class="_circle">
+					<div class="middle"></div>
+					<div class="hand hour-hand"></div>
+					<div class="hand minute-hand"></div>
+					<div class="hand second-hand"></div>
+				</div>
+                <span class="_daylight-saving" title="Is daylight saving? (Will light up if it is)">DST</span>
+                <span class="_current-day"></span>
+			</div>
+			<div class="__select-time">
+				<select></select>
+				<button>Apply</button>
+			</div>
+			<div class="__notice">MomentJS: <a href="https://momentjs.com/" target="_blank">https://momentjs.com/</a></div>
+		</div>
+	</main>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+	<script type="text/javascript" src="assets/scripts/script.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+:root {
+	--font-size-main: 14.5px;
+	--font-size-second: 11px;
+
+	--color-main: rgba(0, 0, 0, 0.8);
+	--border-main: rgba(0, 0, 0, 0.6);
+
+	/* Button */
+	--button-hover-backround: rgba(0, 0, 0, 0.8);
+	--button-hover-color: rgba(255, 255, 255, 0.9);
+	--font-size-button: 12.3px;
+
+	/* Unit */
+	--unit-one: 7px;
+	--unit-two: 12px;
+}
+
+* {
+	color: var(--color-main);
+	box-sizing: border-box;
+	font-size: var(--font-size-main);
+}
+
+main {
+	padding: 12px;
+	text-align: center;
+}
+
+#date-and-time {
+	width: 300px;
+	margin: 4.5vh auto;
+}
+
+.__clock-digital {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid var(--border-main);
+	border-bottom: 0;
+	border-radius: 3px 3px 0 0;
+	padding: var(--unit-one) var(--unit-two);
+
+	position: relative;
+}
+
+.__clock-digital ._time-format {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	cursor: default;
+
+	position: absolute;
+	top: -18px;
+	left: 8px;
+}
+
+.__clock-digital ._time-format span {
+	font-size: var(--font-size-second);
+	font-weight: 100;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.__clock-digital ._time-format span:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+
+.__clock-digital #--offset {
+	font-size: var(--font-size-second);
+}
+
+.__clock-analog {
+	border: 1px solid var(--border-main);
+	height: 300px;
+	padding: var(--unit-two);
+
+	position: relative;
+}
+
+.__clock-analog ._circle {
+	border-radius: 50%;
+	height: 100%;
+	width: 100%;
+
+	position: relative;
+}
+.__clock-analog .middle {
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	transform: translate(-50%,-50%);
+	z-index: 3;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.__clock-analog .hand {
+	width: 50%;
+	transform-origin: 100%;
+	transform: translateY(-50%);
+
+	position: absolute;
+	top: 50%;
+}
+
+.__clock-analog .hour-hand {
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 50% 0 0 50%;
+	width: 45%;
+	height: 4px;
+	transition: all 1s cubic-bezier(0.33, 1.4, 0.58, 1);
+
+	left: 5%;
+}
+
+.__clock-analog .minute-hand {
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 50% 0 0 50%;
+	height: 3px;
+	transition: all 0.8s cubic-bezier(0.33, 1.4, 0.58, 1);
+}
+
+.__clock-analog .second-hand {
+	background: rgba(255, 0, 0, 0.4);
+	height: 2px;
+	transition: all 0.2s cubic-bezier(0.32, 1.71, 0.58, 1);
+
+	z-index: 2;
+}
+
+.__select-time select {
+	border: 1px solid var(--border-main);
+	border-top: none;
+	border-bottom: none;
+	width: 100%;
+	padding: var(--unit-one) var(--unit-two);
+	font-size: var(--font-size-button);
+	font-style: italic;
+}
+
+.__select-time select:focus {
+	outline: none;
+}
+
+.__select-time select option {
+	font-size: var(--font-size-second);
+}
+
+.__select-time button {
+	background: none;
+	border: 1px solid var(--border-main);
+	width: 100%;
+	padding: var(--unit-one) var(--unit-two);
+	font-size: var(--font-size-button);
+	cursor: pointer;
+}
+
+.__select-time button:hover {
+	background: var(--button-hover-backround);
+	color: var(--button-hover-color);
+}
+
+.__notice {
+	color: var(--color-main);
+	padding: 0 var(--unit-two);
+	margin-top: 9.715px;
+	font-size: var(--font-size-second);
+}
+
+.__notice a {
+	font-size: var(--font-size-second);
+}
+
+/* Extra */
+
+._daylight-saving {
+	width: 21px;
+	padding: 3px;
+	opacity: 0.6;
+	cursor: default;
+	transition: all 0.5s;
+
+	position: absolute;
+	top: 5px;
+	left: 8px;
+}
+
+._current-day {
+	width: 21px;
+	padding: 3px;
+	text-decoration: underline;
+	cursor: default;
+
+	position: absolute;
+	bottom: 5px;
+	left: 8px;
+}
+
+.selected-format {
+	opacity: 1 !important;
+}
+
+/* Media Query */
+
+@media (max-width: 360px) { /* Reduced by 30.3% */
+	:root {
+		--font-size-main: 10.107px;
+		--font-size-second: 7.667px;
+
+		/* Button */
+		--font-size-button: 8.5731px;
+
+		/* Unit */
+		--unit-one: 4.879px;
+		--unit-two: 8.364px;
+	}
+
+	#date-and-time {
+		width: 209.1px;
+	}
+
+	.__clock-digital ._time-format {
+		top: -12.546px;
+		left: 5.576px;
+	}
+
+	.__clock-analog {
+		height: 209.1px;
+	}
+
+	.__clock-analog .middle {
+		width: 6.97px;
+		height: 6.97px;
+	}
+
+	.__clock-analog .hour-hand {
+		height: 2.788px;
+	}
+
+	.__clock-analog .minute-hand {
+		height: 2.091px;
+	}
+
+	.__clock-analog .second-hand {
+		height: 1.394px;
+	}
+
+	.__notice {
+		margin-top: 6.7714px;
+	}
+
+	._daylight-saving {
+		width: 14.637px;
+		padding: 2.091px;
+
+		top: 3.485px;
+		left: 5.576px;
+	}
+
+	._current-day {
+		padding: 2.091px;
+
+		bottom: 3.485px;
+		left: 5.576px;
+	}
+}
