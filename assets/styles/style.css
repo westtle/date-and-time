@@ -217,5 +217,9 @@ main {
 	html {
 		font-size: calc(1rem - 10%);
 	}
+
+	._time-format {
+		top: -1.188rem;
+	}
 }
 /* -------- */
