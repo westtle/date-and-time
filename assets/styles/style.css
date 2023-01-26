@@ -41,36 +41,32 @@ main {
 	text-align: center;
 }
 
+/* Digital Clock / Top Part */
+
 .__clock-digital {
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid var(--border-main);
+	border: var(--border-shorthand);
 	border-bottom: 0;
-	border-radius: 3px 3px 0 0;
+	border-radius: 2px 2px 0 0;
 	padding: var(--unit-one) var(--unit-two);
 
 	position: relative;
 }
 
-.__clock-digital ._time-format {
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	cursor: default;
-
+._time-format {
 	position: absolute;
 	top: -18px;
-	left: 8px;
+	left: 0;
 }
 
-.__clock-digital ._time-format span {
+._time-format span {
 	font-size: var(--font-size-second);
-	font-weight: 100;
 	opacity: 0.6;
 	cursor: pointer;
 }
 
-.__clock-digital ._time-format span:hover {
+._time-format span:hover {
 	opacity: 1;
 	text-decoration: underline;
 }
