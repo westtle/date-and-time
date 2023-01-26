@@ -165,8 +165,11 @@ main {
 	left: 9px;
 }
 
-.__select-time select {
-	border: 1px solid var(--border-main);
+/* Select Timezone */
+
+._timezone {
+	background: none;
+	border: var(--border-shorthand);
 	border-top: none;
 	border-bottom: none;
 	width: 100%;
@@ -175,26 +178,26 @@ main {
 	font-style: italic;
 }
 
-.__select-time select:focus {
+._timezone:focus {
 	outline: none;
 }
 
-.__select-time select option {
+._timezone option {
 	font-size: var(--font-size-second);
 }
 
-.__select-time button {
+._apply-button {
 	background: none;
-	border: 1px solid var(--border-main);
+	border: var(--border-shorthand);
 	width: 100%;
 	padding: var(--unit-one) var(--unit-two);
 	font-size: var(--font-size-button);
 	cursor: pointer;
 }
 
-.__select-time button:hover {
-	background: var(--button-hover-backround);
+._apply-button:hover {
 	color: var(--button-hover-color);
+	background: var(--button-hover-backround);
 }
 
 .__notice {
