@@ -8,7 +8,8 @@ let day;
 
 let currentDay;
 
-let timeOffset = "+00:00";
+let timeOffset;
+let timezoneText;
 let timeFormat = "12-hour";
 
 // HTML.
@@ -108,6 +109,8 @@ function setTime() {
     } else {
         pmAm.style.display = "none";
     };
+
+    document.querySelector(".offset_").innerText = `(${timeOffset})`;
 };
 
 function setTimezone(e) {
@@ -141,9 +144,9 @@ function setTimezone(e) {
     };
 
     timeOffset = `${timezoneOffset}:${minuteValue}`;
-    document.querySelector(".offset_").innerText = `(${timeOffset})`;
 
     setTime();
+    saveTimezone(selectTimezone.options[selectTimezone.selectedIndex].innerText);
 };
 
 function setFormat() {
@@ -162,31 +165,56 @@ function setFormat() {
     };
 };
 
-applyButton.addEventListener("click", setTimezone);
-twelveHourFormat.addEventListener("click", setFormat);
-twentyFourHourFormat.addEventListener("click", setFormat);
-
-document.addEventListener("DOMContentLoaded", () => {
-
+function loadTimezoneOptions() {
+    
     // Add dropdown options.
     fetch("./assets/timezones.json")
         .then(response => response.json())
         .then(data => data.forEach(timezone => {
             let option = document.createElement("option");
 
-            if (timezone.text == "(UTC) Coordinated Universal Time") {
-                option.selected = true;
-            };
-
             if (timezone.isdst) {
                 option.dataset.dst = true;
+            };
+
+            // Select last selected.
+            if (timezone.text == timezoneText) {
+                option.selected = true;
+                if (timezone.isdst) {
+                    daylightSavingIcon.style.opacity = 1;
+                };
             };
 
             option.value = timezone.offset;
             option.innerText = timezone.text;
             selectTimezone.append(option);
         }));
+};
 
+// Local Storage.
+const time_zone_offset = "Time_Zone_Offset";
+const time_zone_text = "Time_Zone_Text";
+
+function saveTimezone(timezoneText) {
+    localStorage.setItem(time_zone_offset, JSON.stringify(timeOffset));
+    localStorage.setItem(time_zone_text, JSON.stringify(timezoneText));
+};
+
+function loadTimezone() {
+    const timezoneFromStorage = JSON.parse(localStorage.getItem(time_zone_offset)) || "+00:00";
+    timeOffset = timezoneFromStorage;
+
+    const timezoneTextFromStorage = JSON.parse(localStorage.getItem(time_zone_text)) || "(UTC) Coordinated Universal Time";
+    timezoneText = timezoneTextFromStorage;
+};
+
+applyButton.addEventListener("click", setTimezone);
+twelveHourFormat.addEventListener("click", setFormat);
+twentyFourHourFormat.addEventListener("click", setFormat);
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadTimezone();
+    loadTimezoneOptions();
     setTime();    
 });
 
