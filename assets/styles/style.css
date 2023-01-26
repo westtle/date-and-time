@@ -224,7 +224,7 @@ main {
 }
 /* -------- */
 
-@media(max-width: 280px) { /* 280px */
+@media(max-width: 17.5rem) { /* 280px */
 	.__clock-digital {
 		flex-direction: column;
 	}
