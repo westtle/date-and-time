@@ -79,7 +79,7 @@ function setTime() {
     hourHand.style.transform = `rotate(${hourDeg * 360 + 90}deg)`;
 
     // If under 10, add 0 at start (ex. 9 to 09).
-    if (hour == 0 || hour == -12) {
+    if (timeFormat == "12-hour" && hour == 0 || hour == -12) {
         hourHTML.innerText = `12`;
     } else if (hour < 10) {
         hourHTML.innerText = `0${hour}`;
@@ -109,6 +109,7 @@ function setTime() {
     } else {
         pmAm.style.display = "none";
     };
+    console.log(hour)
 };
 
 function setTimezone(e) {
