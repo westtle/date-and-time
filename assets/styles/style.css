@@ -92,7 +92,7 @@ main {
 	position: relative;
 }
 
-._circle .middle {
+._circle .middle_ {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
 	width: 10px;
@@ -105,7 +105,7 @@ main {
 	transform: translate(-50%,-50%);
 }
 
-._circle .hand {
+._circle .hand_ {
 	width: 50%;
 
 	position: absolute;
@@ -114,7 +114,7 @@ main {
 	transform: translateY(-50%);
 }
 
-._circle .hour-hand {
+._circle .hour-hand__ {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50% 0 0 50%;
 	width: 45%;
@@ -124,18 +124,41 @@ main {
 	left: 5%;
 }
 
-._circle .minute-hand {
+._circle .minute-hand__ {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50% 0 0 50%;
 	height: 3px;
 	transition: all 0.8s cubic-bezier(0.33, 1.4, 0.58, 1);
 }
 
-._circle .second-hand {
+._circle .second-hand__ {
 	background: rgba(255, 0, 0, 0.4);
 	height: 2px;
 	transition: all 0.2s cubic-bezier(0.32, 1.71, 0.58, 1);
 	z-index: 2;
+}
+
+._daylight-saving {
+	width: 21px;
+	padding: 3px;
+	opacity: 0.6;
+	cursor: default;
+	transition: all 0.5s;
+
+	position: absolute;
+	top: 5px;
+	left: 8px;
+}
+
+._current-day {
+	width: 21px;
+	padding: 3px;
+	text-decoration: underline;
+	cursor: default;
+
+	position: absolute;
+	bottom: 5px;
+	left: 8px;
 }
 
 .__select-time select {
@@ -182,29 +205,6 @@ main {
 }
 
 /* Extra */
-
-._daylight-saving {
-	width: 21px;
-	padding: 3px;
-	opacity: 0.6;
-	cursor: default;
-	transition: all 0.5s;
-
-	position: absolute;
-	top: 5px;
-	left: 8px;
-}
-
-._current-day {
-	width: 21px;
-	padding: 3px;
-	text-decoration: underline;
-	cursor: default;
-
-	position: absolute;
-	bottom: 5px;
-	left: 8px;
-}
 
 .selected-format {
 	opacity: 1 !important;
