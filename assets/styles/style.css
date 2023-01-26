@@ -68,7 +68,11 @@ main {
 
 ._time-format span:hover {
 	opacity: 1;
+}
+
+.selected-format {
 	text-decoration: underline;
+	opacity: 1 !important;
 }
 
 ._hour-minute-second .offset_ {
@@ -202,10 +206,4 @@ main {
 
 .__notice a {
 	font-size: var(--font-size-second);
-}
-
-/* Extra */
-
-.selected-format {
-	opacity: 1 !important;
 }
