@@ -116,7 +116,7 @@ function setTime() {
 function setTimezone(e) {
     let minuteValue = "00";
 
-    let timezoneOffset = selectTimezone.value;
+    let selectValue = selectTimezone.value;
     let isDaylightSavingTime = selectTimezone.options[selectTimezone.selectedIndex].dataset.dst; // See if selected timezone is in DST.
 
     if (isDaylightSavingTime) {
@@ -125,25 +125,25 @@ function setTimezone(e) {
         daylightSavingIcon.style.opacity = 0.6;
     };
 
-    if (timezoneOffset.includes(".5")) {
+    if (selectValue.includes(".5")) {
         minuteValue = "30";
-        timezoneOffset = timezoneOffset.slice(0, timezoneOffset.length - 2);
-    } else if (timezoneOffset.includes(".75")) {
+        selectValue = selectValue.slice(0, selectValue.length - 2);
+    } else if (selectValue.includes(".75")) {
         minuteValue = "45";
-        timezoneOffset = timezoneOffset.slice(0, timezoneOffset.length - 3);
+        selectValue = selectValue.slice(0, selectValue.length - 3);
     }
 
-    if (timezoneOffset >= 10) {
-        timezoneOffset = `+${timezoneOffset}`;
-    } else if (timezoneOffset >= 0) {
-        timezoneOffset = `+0${timezoneOffset}`;
-    } else if (timezoneOffset <= -10) {
-        timezoneOffset = `-${timezoneOffset.slice(1)}`;
-    } else if (timezoneOffset < 0) {
-        timezoneOffset = `-0${timezoneOffset.slice(1)}`;
+    if (selectValue >= 10) {
+        selectValue = `+${selectValue}`;
+    } else if (selectValue >= 0) {
+        selectValue = `+0${selectValue}`;
+    } else if (selectValue <= -10) {
+        selectValue = `-${selectValue.slice(1)}`;
+    } else if (selectValue < 0) {
+        selectValue = `-0${selectValue.slice(1)}`;
     };
 
-    timeOffset = `${timezoneOffset}:${minuteValue}`;
+    timeOffset = `${selectValue}:${minuteValue}`;
 
     setTime();
     saveTimezone(selectTimezone.options[selectTimezone.selectedIndex].innerText);
