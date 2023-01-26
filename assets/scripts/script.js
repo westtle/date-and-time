@@ -162,31 +162,32 @@ function setFormat() {
     };
 };
 
-// Add dropdown options.
-fetch("./assets/timezones.json")
-    .then(response => response.json())
-    .then(data => data.forEach(timezone => {
-        let option = document.createElement("option");
-        if (timezone.text == "(UTC) Coordinated Universal Time") {
-            option.selected = true;
-        };
-
-        if (timezone.isdst) {
-            option.dataset.dst = true;
-        };
-
-        option.value = timezone.offset;
-        option.innerText = timezone.text;
-        selectTimezone.append(option)
-    }))
-    .catch(error => console.log(error));
-
 applyButton.addEventListener("click", setTimezone);
 twelveHourFormat.addEventListener("click", setFormat);
 twentyFourHourFormat.addEventListener("click", setFormat);
 
 document.addEventListener("DOMContentLoaded", () => {
-    setTime();
+
+    // Add dropdown options.
+    fetch("./assets/timezones.json")
+        .then(response => response.json())
+        .then(data => data.forEach(timezone => {
+            let option = document.createElement("option");
+
+            if (timezone.text == "(UTC) Coordinated Universal Time") {
+                option.selected = true;
+            };
+
+            if (timezone.isdst) {
+                option.dataset.dst = true;
+            };
+
+            option.value = timezone.offset;
+            option.innerText = timezone.text;
+            selectTimezone.append(option);
+        }));
+
+    setTime();    
 });
 
 setInterval(setTime, 1000);
