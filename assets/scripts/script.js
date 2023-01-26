@@ -166,8 +166,6 @@ function setFormat() {
 };
 
 function loadTimezoneOptions() {
-    
-    // Add dropdown options.
     fetch("./assets/timezones.json")
         .then(response => response.json())
         .then(data => data.forEach(timezone => {
