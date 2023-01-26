@@ -66,10 +66,6 @@ main {
 	cursor: pointer;
 }
 
-._time-format span:hover {
-	opacity: 1;
-}
-
 .selected-format {
 	text-decoration: underline;
 	opacity: 1 !important;
@@ -195,11 +191,6 @@ main {
 	cursor: pointer;
 }
 
-._apply-button:hover {
-	color: var(--button-hover-color);
-	background: var(--button-hover-backround);
-}
-
 /* Notice / Link */
 
 .__notice {
@@ -207,4 +198,17 @@ main {
 	padding: 0 var(--unit-one);
 	font-size: var(--font-size-second);
 	word-wrap: break-word;
+}
+
+/* Media Query */
+
+@media (hover: hover) {
+	._time-format span:hover {
+		opacity: 1;
+	}
+
+	._apply-button:hover {
+		color: var(--button-hover-color);
+		background: var(--button-hover-backround);
+	}
 }
