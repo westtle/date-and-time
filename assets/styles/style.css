@@ -200,13 +200,11 @@ main {
 	background: var(--button-hover-backround);
 }
 
-.__notice {
-	color: var(--color-main);
-	padding: 0 var(--unit-two);
-	margin-top: 9.715px;
-	font-size: var(--font-size-second);
-}
+/* Notice / Link */
 
-.__notice a {
+.__notice {
+	margin-top: var(--unit-two);
+	padding: 0 var(--unit-one);
 	font-size: var(--font-size-second);
+	word-wrap: break-word;
 }
