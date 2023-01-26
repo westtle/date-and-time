@@ -71,7 +71,7 @@ main {
 	text-decoration: underline;
 }
 
-.__clock-digital #--offset {
+._hour-minute-second .offset_ {
 	font-size: var(--font-size-second);
 }
 
