@@ -12,22 +12,21 @@ let timeOffset = "+00:00";
 let timeFormat = "12-hour";
 
 // HTML.
-const hourDiv = document.querySelector("#--hour");
-const minuteDiv = document.querySelector("#--minute");
-const secondDiv = document.querySelector("#--second");
+const hourHTML = document.querySelector(".hour_");
+const minuteHTML = document.querySelector(".minute_");
+const secondHTML = document.querySelector(".second_");
+const monthDayYearHTML = document.querySelector("._month-day-year");
 
-const monthDayYearDiv = document.querySelector("._month-day-year");
+const currentDayHTML = document.querySelector("._current-day");
 
-const currentDayDiv = document.querySelector("._current-day");
+const hourHand = document.querySelector(".hour-hand__");
+const minuteHand = document.querySelector(".minute-hand__");
+const secondHand = document.querySelector(".second-hand__");
 
-const hourHand = document.querySelector(".hour-hand");
-const minuteHand = document.querySelector(".minute-hand");
-const secondHand = document.querySelector(".second-hand");
+const pmAm = document.querySelector(".pm-am_");
 
-const pmAm = document.querySelector("#--pm-am");
-
-const selectTimezone = document.querySelector(".__select-time select");
-const applyButton = document.querySelector(".__select-time button");
+const selectTimezone = document.querySelector("._timezone");
+const applyButton = document.querySelector("._apply-button");
 
 const twelveHourFormat = document.querySelector("._time-format").children[0];
 const twentyFourHourFormat = document.querySelector("._time-format").children[1];
@@ -62,13 +61,13 @@ function setTime() {
 
     const daysName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     
-    hourDiv.innerText = hour;
-    minuteDiv.innerText = minute;
-    secondDiv.innerText = second;
+    hourHTML.innerText = hour;
+    minuteHTML.innerText = minute;
+    secondHTML.innerText = second;
 
-    monthDayYearDiv.innerText = `${monthsName[month]} ${day}, ${year}`;
+    monthDayYearHTML.innerText = `${monthsName[month]} ${day}, ${year}`;
 
-    currentDayDiv.innerText = daysName[currentDay];
+    currentDayHTML.innerText = daysName[currentDay];
 
     // Update clock hand.
     let secondDeg = second / 60;
@@ -81,21 +80,21 @@ function setTime() {
 
     // If under 10, add 0 at start (ex. 9 to 09).
     if (hour == 0 || hour == -12) {
-        hourDiv.innerText = `12`;
+        hourHTML.innerText = `12`;
     } else if (hour < 10) {
-        hourDiv.innerText = `0${hour}`;
+        hourHTML.innerText = `0${hour}`;
     };
     
     if (minute < 10) {
-        minuteDiv.innerText = `0${minute}`;
+        minuteHTML.innerText = `0${minute}`;
     };
     
     if (second < 10) {
-        secondDiv.innerText = `0${second}`;
+        secondHTML.innerText = `0${second}`;
     };
     
     if (day < 10) {
-        monthDayYearDiv.innerText = `${monthsName[month]} 0${day}, ${year}`;
+        monthDayYearHTML.innerText = `${monthsName[month]} 0${day}, ${year}`;
     };
 
     // Set PM or AM.
