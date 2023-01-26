@@ -48,7 +48,6 @@ main {
 	justify-content: space-between;
 	border: var(--border-shorthand);
 	border-bottom: 0;
-	border-radius: 2px 2px 0 0;
 	padding: var(--unit-one) var(--unit-two);
 
 	position: relative;
