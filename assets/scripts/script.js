@@ -148,14 +148,14 @@ function setTimezone(e) {
 
 function setFormat() {
     if (this.innerText == "12-hour") {
-        twentyFourHourFormat.classList.remove("selected-format");
-        twelveHourFormat.classList.add("selected-format");
+        twentyFourHourFormat.dataset.selected = "false";
+        twelveHourFormat.dataset.selected = "true";
         timeFormat = "12-hour";
 
         setTime();
     } else if (this.innerText == "24-hour") {
-        twelveHourFormat.classList.remove("selected-format");
-        twentyFourHourFormat.classList.add("selected-format");
+        twelveHourFormat.dataset.selected = "false";
+        twentyFourHourFormat.dataset.selected = "true";
         timeFormat = "24-hour";
 
         setTime();

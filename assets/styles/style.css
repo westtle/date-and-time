@@ -65,7 +65,7 @@ main {
 	cursor: pointer;
 }
 
-.selected-format {
+[data-selected="true"] {
 	text-decoration: underline;
 	opacity: 1 !important;
 }
