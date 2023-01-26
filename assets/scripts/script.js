@@ -166,7 +166,7 @@ function setFormat() {
 };
 
 function loadTimezoneOptions() {
-    fetch("./assets/timezones.json")
+    fetch("./assets/timezones.min.json")
         .then(response => response.json())
         .then(data => data.forEach(timezone => {
             let option = document.createElement("option");
