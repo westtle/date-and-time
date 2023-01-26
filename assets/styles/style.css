@@ -75,44 +75,46 @@ main {
 	font-size: var(--font-size-second);
 }
 
+/* Analog Clock */
+
 .__clock-analog {
-	border: 1px solid var(--border-main);
-	height: 300px;
+	border: var(--border-shorthand);
+	height: 50vh;
+	max-height: 300px;
 	padding: var(--unit-two);
 
 	position: relative;
 }
 
-.__clock-analog ._circle {
-	border-radius: 50%;
+._circle {
 	height: 100%;
-	width: 100%;
 
 	position: relative;
 }
-.__clock-analog .middle {
+
+._circle .middle {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
 	width: 10px;
 	height: 10px;
-	transform: translate(-50%,-50%);
 	z-index: 3;
 
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	transform: translate(-50%,-50%);
 }
 
-.__clock-analog .hand {
+._circle .hand {
 	width: 50%;
-	transform-origin: 100%;
-	transform: translateY(-50%);
 
 	position: absolute;
 	top: 50%;
+	transform-origin: 100%;
+	transform: translateY(-50%);
 }
 
-.__clock-analog .hour-hand {
+._circle .hour-hand {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50% 0 0 50%;
 	width: 45%;
@@ -122,18 +124,17 @@ main {
 	left: 5%;
 }
 
-.__clock-analog .minute-hand {
+._circle .minute-hand {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50% 0 0 50%;
 	height: 3px;
 	transition: all 0.8s cubic-bezier(0.33, 1.4, 0.58, 1);
 }
 
-.__clock-analog .second-hand {
+._circle .second-hand {
 	background: rgba(255, 0, 0, 0.4);
 	height: 2px;
 	transition: all 0.2s cubic-bezier(0.32, 1.71, 0.58, 1);
-
 	z-index: 2;
 }
 
