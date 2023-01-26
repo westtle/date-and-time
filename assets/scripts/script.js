@@ -55,11 +55,10 @@ function setTime() {
     };
 
     // Update DOM.
+    const daysName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const monthsName = ["January", "February", "March", "April",
                         "May", "June", "July", "August",
                         "September", "October", "November", "December"];
-
-    const daysName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     
     hourHTML.innerText = hour;
     minuteHTML.innerText = minute;
@@ -109,13 +108,12 @@ function setTime() {
     } else {
         pmAm.style.display = "none";
     };
-    console.log(hour)
 };
 
 function setTimezone(e) {
     let minuteValue = "00";
 
-    let inputValue = selectTimezone.value;
+    let timezoneOffset = selectTimezone.value;
     let isDaylightSavingTime = selectTimezone.options[selectTimezone.selectedIndex].dataset.dst; // See if selected timezone is in DST.
 
     if (isDaylightSavingTime) {
@@ -124,25 +122,25 @@ function setTimezone(e) {
         daylightSavingIcon.style.opacity = 0.6;
     };
 
-    if (inputValue.includes(".5")) {
+    if (timezoneOffset.includes(".5")) {
         minuteValue = "30";
-        inputValue = inputValue.slice(0, inputValue.length - 2);
-    } else if (inputValue.includes(".75")) {
+        timezoneOffset = timezoneOffset.slice(0, timezoneOffset.length - 2);
+    } else if (timezoneOffset.includes(".75")) {
         minuteValue = "45";
-        inputValue = inputValue.slice(0, inputValue.length - 3);
+        timezoneOffset = timezoneOffset.slice(0, timezoneOffset.length - 3);
     }
 
-    if (inputValue >= 10) {
-        inputValue = `+${inputValue}`;
-    } else if (inputValue >= 0) {
-        inputValue = `+0${inputValue}`;
-    } else if (inputValue <= -10) {
-        inputValue = `-${inputValue.slice(1)}`;
-    } else if (inputValue < 0) {
-        inputValue = `-0${inputValue.slice(1)}`;
+    if (timezoneOffset >= 10) {
+        timezoneOffset = `+${timezoneOffset}`;
+    } else if (timezoneOffset >= 0) {
+        timezoneOffset = `+0${timezoneOffset}`;
+    } else if (timezoneOffset <= -10) {
+        timezoneOffset = `-${timezoneOffset.slice(1)}`;
+    } else if (timezoneOffset < 0) {
+        timezoneOffset = `-0${timezoneOffset.slice(1)}`;
     };
 
-    timeOffset = `${inputValue}:${minuteValue}`;
+    timeOffset = `${timezoneOffset}:${minuteValue}`;
     document.querySelector(".offset_").innerText = `(${timeOffset})`;
 
     setTime();
