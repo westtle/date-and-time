@@ -142,7 +142,7 @@ function setTimezone(e) {
     };
 
     timeOffset = `${inputValue}:${minuteValue}`;
-    document.getElementById("--offset").innerText = `(${timeOffset})`;
+    document.querySelector(".offset_").innerText = `(${timeOffset})`;
 
     setTime();
 };
