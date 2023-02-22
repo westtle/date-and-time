@@ -75,8 +75,7 @@ main {
 
 .__clock-analog {
 	border: var(--border-shorthand);
-	height: 50vh;
-	max-height: 18.75rem;
+	height: 18.75rem;
 	padding: var(--twelve);
 
 	position: relative;
